@@ -1,21 +1,24 @@
-import { Injectable } from '@angular/core';
-import axios from 'axios';
+import { Injectable } from "@angular/core";
+import axios from "axios";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = "http://localhost:3000/api";
 
   async login(username: string, password: string) {
     try {
-      const response = await axios.post(`${this.apiUrl}/login`, { username, password });
-      localStorage.setItem('token', response.data.token);
-      console.log("Token=".concat(response.data.token))
+      const response = await axios.post(`${this.apiUrl}/login`, {
+        username,
+        password,
+      });
+      localStorage.setItem("token", response.data.token);
+      console.log("Token=".concat(response.data.token));
       return response.data;
     } catch (error) {
       console.log(`Error: ${error}`);
-      throw new Error('Login failed');
+      throw new Error("Login failed");
     }
   }
 
@@ -24,12 +27,12 @@ export class AuthService {
       await axios.post(`${this.apiUrl}/register`, { username, password });
     } catch (error) {
       console.log(`Error: ${error}`);
-      throw new Error('Registration failed');
+      throw new Error("Registration failed");
     }
   }
 
   getToken() {
-    return localStorage.getItem('token');
+    return localStorage.getItem("token");
   }
 
   isAuthenticated() {
@@ -37,6 +40,6 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
   }
 }

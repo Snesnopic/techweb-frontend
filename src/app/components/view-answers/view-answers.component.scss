@@ -12,14 +12,16 @@
     margin-bottom: 20px;
   }
 
-  .question-card, .user-card {
+  .question-card,
+  .user-card {
     padding: 15px;
     margin-bottom: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 
-    .question-text, .answer-text {
+    .question-text,
+    .answer-text {
       font-weight: bold;
       color: #007acc;
     }
@@ -29,12 +31,14 @@
       color: #007acc;
     }
 
-    .answer-list, .user-answer-list {
+    .answer-list,
+    .user-answer-list {
       list-style-type: none;
       padding: 0;
     }
 
-    .answer-item, .user-answer-item {
+    .answer-item,
+    .user-answer-item {
       margin-bottom: 10px;
     }
 

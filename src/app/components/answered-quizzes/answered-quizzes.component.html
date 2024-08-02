@@ -5,15 +5,20 @@
       <mat-card>
         <mat-card-header>
           <mat-card-title>{{ quizGroup.quiz.title }}</mat-card-title>
-          <mat-card-subtitle>Answered on: {{ quizGroup.answers[0].createdAt | date }}</mat-card-subtitle>
+          <mat-card-subtitle
+            >Answered on:
+            {{ quizGroup.answers[0].createdAt | date }}</mat-card-subtitle
+          >
         </mat-card-header>
         <mat-card-content>
-          <div [innerHTML]="quizGroup.quiz.descriptionHtml"></div> <!-- Render HTML-formatted description -->
+          <div [innerHTML]="quizGroup.quiz.descriptionHtml"></div>
+          <!-- Render HTML-formatted description -->
           <div *ngFor="let answer of quizGroup.answers">
             <h3>{{ answer.Question.question }}</h3>
             <p><strong>Your Answer:</strong> {{ answer.givenanswer }}</p>
             <p *ngIf="answer.Question.correctanswer">
-              <strong>Correct Answer:</strong> {{ answer.Question.correctanswer }}
+              <strong>Correct Answer:</strong>
+              {{ answer.Question.correctanswer }}
             </p>
           </div>
         </mat-card-content>

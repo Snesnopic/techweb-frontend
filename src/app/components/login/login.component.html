@@ -3,11 +3,7 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Username</mat-label>
-      <input 
-        matInput
-        formControlName="username"
-        required
-      />
+      <input matInput formControlName="username" required />
       <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
         Username is required
       </mat-error>
@@ -15,14 +11,20 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
-      <input 
-        matInput 
+      <input
+        matInput
         [type]="hide ? 'password' : 'text'"
         formControlName="password"
         required
       />
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
       <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
         Password is required
@@ -34,6 +36,13 @@
 
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!loginForm.valid"
+    >
+      Login
+    </button>
   </form>
 </div>

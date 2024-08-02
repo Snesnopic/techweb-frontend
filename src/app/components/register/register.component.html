@@ -3,11 +3,7 @@
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Username</mat-label>
-      <input 
-        matInput
-        formControlName="username"
-        required
-      />
+      <input matInput formControlName="username" required />
       <mat-error *ngIf="registerForm.controls['username'].hasError('required')">
         Username is required
       </mat-error>
@@ -15,25 +11,40 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
-      <input 
-        matInput 
+      <input
+        matInput
         [type]="hide ? 'password' : 'text'"
         formControlName="password"
         required
       />
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
       <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
         Password is required
       </mat-error>
-      <mat-error *ngIf="registerForm.controls['password'].hasError('minlength')">
+      <mat-error
+        *ngIf="registerForm.controls['password'].hasError('minlength')"
+      >
         Password must be at least 6 characters long
       </mat-error>
     </mat-form-field>
 
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!registerForm.valid"
+    >
+      Register
+    </button>
   </form>
 </div>

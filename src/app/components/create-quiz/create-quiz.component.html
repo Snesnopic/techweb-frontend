@@ -3,7 +3,7 @@
   <form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Quiz Title</mat-label>
-      <input matInput formControlName="title" required>
+      <input matInput formControlName="title" required />
       <mat-error *ngIf="quizForm.controls['title'].hasError('required')">
         Title is required
       </mat-error>
@@ -18,10 +18,13 @@
     </mat-form-field>
 
     <div formArrayName="questions">
-      <div *ngFor="let question of questions.controls; let i=index" [formGroupName]="i">
+      <div
+        *ngFor="let question of questions.controls; let i = index"
+        [formGroupName]="i"
+      >
         <mat-form-field appearance="fill">
           <mat-label>Question {{ i + 1 }}</mat-label>
-          <input matInput formControlName="questionText" required>
+          <input matInput formControlName="questionText" required />
           <mat-error *ngIf="question.get('questionText')!.hasError('required')">
             Question text is required
           </mat-error>
@@ -29,36 +32,75 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Correct Answer (Open Answer)</mat-label>
-          <input matInput formControlName="correctAnswer" (input)="updateAnswerValidators()">
+          <input
+            matInput
+            formControlName="correctAnswer"
+            (input)="updateAnswerValidators()"
+          />
         </mat-form-field>
 
-        <div formArrayName="answers" *ngIf="!question.get('correctAnswer')!.value.trim()">
-          <div *ngFor="let answer of getAnswersControls(i).controls; let j=index" [formGroupName]="j">
+        <div
+          formArrayName="answers"
+          *ngIf="!question.get('correctAnswer')!.value.trim()"
+        >
+          <div
+            *ngFor="let answer of getAnswersControls(i).controls; let j = index"
+            [formGroupName]="j"
+          >
             <mat-form-field appearance="fill">
               <mat-label>Answer {{ j + 1 }}</mat-label>
-              <input matInput formControlName="answerText" required>
-              <mat-checkbox formControlName="isCorrect" (change)="onCorrectAnswerChange(i, j)">Correct</mat-checkbox>
+              <input matInput formControlName="answerText" required />
+              <mat-checkbox
+                formControlName="isCorrect"
+                (change)="onCorrectAnswerChange(i, j)"
+                >Correct</mat-checkbox
+              >
               <mat-error *ngIf="answer.get('answerText')!.hasError('required')">
                 Answer text is required
               </mat-error>
             </mat-form-field>
-            <button mat-raised-button color="warn" (click)="removeAnswer(i, j)" *ngIf="getAnswersControls(i).length > 2">Remove Answer</button>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="removeAnswer(i, j)"
+              *ngIf="getAnswersControls(i).length > 2"
+            >
+              Remove Answer
+            </button>
           </div>
-          <button mat-raised-button color="primary" (click)="addAnswer(i)" *ngIf="getAnswersControls(i).length < 4">Add Answer</button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="addAnswer(i)"
+            *ngIf="getAnswersControls(i).length < 4"
+          >
+            Add Answer
+          </button>
         </div>
 
         <mat-error *ngIf="question.errors?.['invalidQuestions']">
-          Each question must either have at least 2 non-empty answers with one being correct, or have an open answer.
+          Each question must either have at least 2 non-empty answers with one
+          being correct, or have an open answer.
         </mat-error>
 
-        <button mat-raised-button color="warn" (click)="removeQuestion(i)">Remove Question</button>
+        <button mat-raised-button color="warn" (click)="removeQuestion(i)">
+          Remove Question
+        </button>
       </div>
     </div>
 
-    <button mat-raised-button color="primary" (click)="addQuestion()">Add Question</button>
+    <button mat-raised-button color="primary" (click)="addQuestion()">
+      Add Question
+    </button>
     <mat-form-field appearance="fill">
       <mat-label>Maximum Errors</mat-label>
-      <input matInput formControlName="maxErrors" type="number" min="0" max="{{questions.length}}">
+      <input
+        matInput
+        formControlName="maxErrors"
+        type="number"
+        min="0"
+        max="{{ questions.length }}"
+      />
       <mat-error *ngIf="quizForm.get('maxErrors')!.hasError('required')">
         Maximum errors is required
       </mat-error>
@@ -66,6 +108,13 @@
         Maximum errors must be a positive number
       </mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!quizForm.valid">Create Quiz</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!quizForm.valid"
+    >
+      Create Quiz
+    </button>
   </form>
 </div>

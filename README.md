@@ -1,4 +1,5 @@
 # Web Technologies Course Project
+
 Si vuole realizzare SMARTQUIZ, un servizio online che permette di creare quiz a risposta multipla e/o
 aperta personalizzati e raccogliere le risposte di utenti sul web. Il sistema permette a un utente,
 previa autenticazione, di creare un nuovo quiz, caratterizzato da un titolo e da una descrizione. È
@@ -21,9 +22,10 @@ il test oppure no. Nel caso in cui l’utente non specifichi il proprio nome, il
 risposta come appartenente all’utente “Anonymous”.
 
 # Main technologies
+
 1. Node.JS (Environment)
 2. Sequelize (Back-end database service, with mysql dialect)
 3. Express (Back-end endpoint exposure)
 4. Angular (Front-end framework)
 5. Marked (Front-end HTML and Markdown parser)
-All packages used are in the package.json file.
+   All packages used are in the package.json file.

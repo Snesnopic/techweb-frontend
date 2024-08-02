@@ -1,15 +1,20 @@
 <div class="answer-quiz-container">
   <h2>{{ quiz?.title }}</h2>
-  <div [innerHTML]="descriptionHtml"></div> <!-- Render HTML-formatted description -->
+  <div [innerHTML]="descriptionHtml"></div>
+  <!-- Render HTML-formatted description -->
   <form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
     <ng-container *ngIf="!isLoggedIn">
       <mat-form-field appearance="fill">
         <mat-label>Nickname</mat-label>
-        <input matInput formControlName="nickname" required>
+        <input matInput formControlName="nickname" required />
       </mat-form-field>
     </ng-container>
     <div formArrayName="answers">
-      <div *ngFor="let answerGroup of answers.controls; let i=index" [formGroupName]="i" class="question-container">
+      <div
+        *ngFor="let answerGroup of answers.controls; let i = index"
+        [formGroupName]="i"
+        class="question-container"
+      >
         <h3>{{ quiz?.Questions[i]?.question }}</h3>
         <ng-container *ngIf="isMultipleChoice(i); else openAnswer">
           <mat-radio-group formControlName="selectedAnswer">
@@ -21,14 +26,23 @@
         <ng-template #openAnswer>
           <mat-form-field appearance="fill">
             <mat-label>Answer</mat-label>
-            <input matInput formControlName="answerText" required>
-            <mat-error *ngIf="answerGroup.get('answerText')!.hasError('required')">
+            <input matInput formControlName="answerText" required />
+            <mat-error
+              *ngIf="answerGroup.get('answerText')!.hasError('required')"
+            >
               Answer is required
             </mat-error>
           </mat-form-field>
         </ng-template>
       </div>
     </div>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!quizForm.valid">Submit Answers</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!quizForm.valid"
+    >
+      Submit Answers
+    </button>
   </form>
 </div>

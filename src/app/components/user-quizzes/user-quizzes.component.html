@@ -7,7 +7,10 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title>{{ quiz.title }}</mat-card-title>
-        <mat-card-subtitle [innerHTML]="quiz.descriptionHtml"></mat-card-subtitle> <!-- Render HTML -->
+        <mat-card-subtitle
+          [innerHTML]="quiz.descriptionHtml"
+        ></mat-card-subtitle>
+        <!-- Render HTML -->
       </mat-card-header>
       <mat-card-content>
         <div *ngIf="quiz.Questions.length > 0">
@@ -17,13 +20,17 @@
               <p><strong>Q:</strong> {{ question.question }}</p>
               <ul *ngIf="question.answers.length > 0">
                 <li *ngFor="let answer of question.answers">
-                  <span [class.correct-answer]="answer === question.correctanswer">
+                  <span
+                    [class.correct-answer]="answer === question.correctanswer"
+                  >
                     {{ answer }}
                   </span>
                 </li>
               </ul>
               <div *ngIf="isQuestionMultiChoice(question)">
-                <span [class.correct-answer]="true"> {{ question.correctanswer }}</span>
+                <span [class.correct-answer]="true">
+                  {{ question.correctanswer }}</span
+                >
               </div>
             </li>
           </ul>
@@ -37,9 +44,23 @@
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="warn" (click)="confirmDeleteQuiz(+quiz.id)">Delete</button>
-        <button mat-raised-button color="accent" (click)="viewAnswers(+quiz.id)">View Answers</button>
-        <button mat-raised-button color="primary" (click)="copyLink(quiz.id)">Copy Link</button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="confirmDeleteQuiz(+quiz.id)"
+        >
+          Delete
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="viewAnswers(+quiz.id)"
+        >
+          View Answers
+        </button>
+        <button mat-raised-button color="primary" (click)="copyLink(quiz.id)">
+          Copy Link
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>
