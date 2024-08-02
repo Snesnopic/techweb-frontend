@@ -14,6 +14,7 @@ export class AuthService {
       console.log("Token=".concat(response.data.token))
       return response.data;
     } catch (error) {
+      console.log(`Error: ${error}`);
       throw new Error('Login failed');
     }
   }
@@ -22,6 +23,7 @@ export class AuthService {
     try {
       await axios.post(`${this.apiUrl}/register`, { username, password });
     } catch (error) {
+      console.log(`Error: ${error}`);
       throw new Error('Registration failed');
     }
   }
