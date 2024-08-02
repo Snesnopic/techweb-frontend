@@ -7,9 +7,9 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class QuizService {
 
-  private apiUrl = 'http://localhost:3000/api'; // Update with your API URL
+  private apiUrl = 'http://localhost:3000/api';
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   async getQuizzesWithUserAnswers() {
     if (isPlatformBrowser(this.platformId)) {

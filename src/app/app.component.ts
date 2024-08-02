@@ -15,7 +15,7 @@ export class AppComponent {
   title = 'techwebquiz';
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: object,
     private router: Router
   ) {}
 
