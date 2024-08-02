@@ -1,0 +1,73 @@
+.view-answers-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .question-card, .user-card {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+    .question-text, .answer-text {
+      font-weight: bold;
+      color: #007acc;
+    }
+
+    .correct-answer {
+      font-style: italic;
+      color: #007acc;
+    }
+
+    .answer-list, .user-answer-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .answer-item, .user-answer-item {
+      margin-bottom: 10px;
+    }
+
+    .answer-item .correct-answer {
+      font-weight: bold;
+      color: #007acc;
+    }
+
+    .answer-user {
+      font-style: italic;
+      color: #555;
+    }
+
+    .correct-answer {
+      color: green;
+    }
+
+    .incorrect-answer {
+      color: red;
+    }
+  }
+
+  .no-answers {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+  }
+
+  .passed {
+    color: green;
+  }
+
+  .failed {
+    color: red;
+  }
+}

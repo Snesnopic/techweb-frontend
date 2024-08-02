@@ -1,0 +1,40 @@
+.user-quizzes-container {
+  padding: 20px;
+}
+
+.quiz-card {
+  margin-bottom: 20px;
+}
+
+.no-quizzes {
+  text-align: center;
+  color: #888;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+li span {
+  display: block;
+  margin-left: 20px;
+}
+
+.correct-answer {
+  font-weight: bold;
+  color: green;
+}
+
+.mat-card-content p {
+  margin-bottom: 0.5rem; /* Adjusted for spacing */
+}
+
+.max-errors {
+  font-weight: bold;
+  color: #333;
+}

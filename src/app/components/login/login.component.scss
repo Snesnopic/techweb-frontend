@@ -1,0 +1,29 @@
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .error-message {
+    color: red;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+}

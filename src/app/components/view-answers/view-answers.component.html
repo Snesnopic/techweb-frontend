@@ -1,0 +1,52 @@
+<div class="view-answers-container">
+  <h2>Quiz Answers</h2>
+  <mat-tab-group>
+    <mat-tab label="By Question">
+      <div *ngIf="questions.length; else noAnswers">
+        <div *ngFor="let question of questions" class="question-card">
+          <p class="question-text">{{ question.question }}</p>
+          <p class="correct-answer" *ngIf="question.correctAnswer">Correct Answer: {{ question.correctAnswer }}</p>
+          <ul class="answer-list">
+            <li *ngFor="let answer of question.answers" class="answer-item">
+              <span *ngIf="answer.givenAnswer === question.correctAnswer; else normalAnswer">
+                <b>{{ answer.givenAnswer }}</b>
+              </span>
+              <ng-template #normalAnswer>
+                {{ answer.givenAnswer }}
+              </ng-template>
+              <span class="answer-user">- {{ answer.user }}</span> <!-- Show nickname and sessionId -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="By User">
+      <div *ngIf="groupedAnswers.length; else noAnswers">
+        <div *ngFor="let userGroup of groupedAnswers" class="user-card">
+          <h3>{{ userGroup.user }}</h3>
+          <p>Completed on: {{ userGroup.answers[0].createdAt | date:'short' }}</p>
+          <p [ngClass]="{'passed': userGroup.passed, 'failed': !userGroup.passed}">
+            Score: {{ userGroup.correctAnswers }}/{{ userGroup.totalQuestions }}
+          </p>
+          <ul class="user-answer-list">
+            <li *ngFor="let answer of userGroup.answers" class="user-answer-item">
+              <p>{{ answer.question }}</p>
+              <p>
+                <strong>{{ userGroup.user }}'s Answer:</strong> 
+                <span [ngClass]="{'correct-answer': answer.givenAnswer === answer.correctAnswer, 'incorrect-answer': answer.givenAnswer !== answer.correctAnswer}">
+                  {{ answer.givenAnswer }}
+                </span>
+                <span *ngIf="answer.givenAnswer !== answer.correctAnswer">
+                  (Correct Answer: {{ answer.correctAnswer }})
+                </span>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  <ng-template #noAnswers>
+    <p class="no-answers">No answers available for this quiz.</p>
+  </ng-template>
+</div>

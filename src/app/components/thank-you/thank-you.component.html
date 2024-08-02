@@ -1,0 +1,10 @@
+<div class="thank-you-container">
+  <h2>Thank You for Your Submission!</h2>
+  <p>Your answers have been submitted successfully.</p>
+  <div *ngIf="isLoggedIn; else guestMessage">
+    <button mat-raised-button color="primary" (click)="goToAnsweredQuizzes()">View Submitted Answers</button>
+  </div>
+  <ng-template #guestMessage>
+    <p>If you want to save your answers and create quizzes, please <a (click)="goToRegister()">create an account</a> or <a (click)="goToLogin()">log in</a>.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="container">
+    <ul class="nav-list">
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a routerLink="/my-quizzes">My Quizzes</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a routerLink="/answered-quizzes">Answered Quizzes</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a routerLink="/create-quiz">Create Quiz</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn()">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn()">
+        <a routerLink="/register">Register</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
