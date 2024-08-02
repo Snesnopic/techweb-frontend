@@ -19,7 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
-  hide: Boolean = true;
+  hide: boolean = true;
   errorMessage: string | null = null;
 
   constructor(
