@@ -22,10 +22,18 @@ il test oppure no. Nel caso in cui l’utente non specifichi il proprio nome, il
 risposta come appartenente all’utente “Anonymous”.
 
 # Main technologies
-
 1. Node.JS (Environment)
 2. Sequelize (Back-end database service, with mysql dialect)
 3. Express (Back-end endpoint exposure)
 4. Angular (Front-end framework)
 5. Marked (Front-end HTML and Markdown parser)
-   All packages used are in the package.json file.
+All packages used are in the package.json file.
+
+# How to use
+Front-end tutorial
+Clone or download front-end repository
+```bash
+cd techweb-frontend-main
+npm install
+npm run start
+```
